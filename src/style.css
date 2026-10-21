@@ -1,0 +1,157 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, Consolas, monospace;
+  --color-brand: var(--brand);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Workspace chrome */
+  --color-titlebar: var(--titlebar);
+  --color-activity: var(--activity);
+  --color-sidebar: var(--sidebar);
+  --color-tabbar: var(--tabbar);
+  --color-statusbar: var(--statusbar);
+  --color-statusbar-foreground: var(--statusbar-foreground);
+  --color-selection: var(--selection);
+  --color-link: var(--link);
+
+  /* Syntax colors, used sparingly for accents */
+  --color-syn-keyword: var(--syn-keyword);
+  --color-syn-string: var(--syn-string);
+  --color-syn-fn: var(--syn-fn);
+  --color-syn-var: var(--syn-var);
+  --color-syn-type: var(--syn-type);
+  --color-syn-comment: var(--syn-comment);
+  --color-folder: var(--folder);
+}
+
+/* Light+ (used when the visitor switches the theme) */
+:root {
+  --radius: 0.5rem;
+  --background: #ffffff;
+  --foreground: #1f1f1f;
+  --card: #f8f8f8;
+  --card-foreground: #1f1f1f;
+  --popover: #f8f8f8;
+  --popover-foreground: #1f1f1f;
+  --primary: #005fb8;
+  --primary-foreground: #ffffff;
+  --secondary: #ececec;
+  --secondary-foreground: #1f1f1f;
+  --muted: #f0f0f0;
+  --muted-foreground: #5c5c5c;
+  --accent: #e8e8e8;
+  --accent-foreground: #1f1f1f;
+  --destructive: #c4314b;
+  --border: #e0e0e0;
+  --input: #cecece;
+  --ring: #005fb8;
+  --brand: #1f7a8c;
+  --link: #005fb8;
+
+  --titlebar: #f3f3f3;
+  --activity: #f3f3f3;
+  --sidebar: #f8f8f8;
+  --tabbar: #f3f3f3;
+  --statusbar: #005fb8;
+  --statusbar-foreground: #ffffff;
+  --selection: #e4e6f1;
+
+  --syn-keyword: #0000ff;
+  --syn-string: #a31515;
+  --syn-fn: #795e26;
+  --syn-var: #001080;
+  --syn-type: #1f7a8c;
+  --syn-comment: #008000;
+  --folder: #b8860b;
+}
+
+/* Dark+ (default) */
+.dark {
+  --background: #1e1e1e;
+  --foreground: #d4d4d4;
+  --card: #252526;
+  --card-foreground: #d4d4d4;
+  --popover: #252526;
+  --popover-foreground: #d4d4d4;
+  --primary: #007acc;
+  --primary-foreground: #ffffff;
+  --secondary: #2d2d2d;
+  --secondary-foreground: #d4d4d4;
+  --muted: #2d2d2d;
+  --muted-foreground: #9da3aa;
+  --accent: #2a2d2e;
+  --accent-foreground: #e6e6e6;
+  --destructive: #f48771;
+  --border: #3c3c3c;
+  --input: #3c3c3c;
+  --ring: #007acc;
+  --brand: #4ec9b0;
+  --link: #4fa6ed;
+
+  --titlebar: #1f1f1f;
+  --activity: #181818;
+  --sidebar: #252526;
+  --tabbar: #2d2d2d;
+  --statusbar: #007acc;
+  --statusbar-foreground: #ffffff;
+  --selection: #37373d;
+
+  --syn-keyword: #569cd6;
+  --syn-string: #ce9178;
+  --syn-fn: #dcdcaa;
+  --syn-var: #9cdcfe;
+  --syn-type: #4ec9b0;
+  --syn-comment: #6a9955;
+  --folder: #dcb67a;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html, body, #app { height: 100%; }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    overflow: hidden;
+  }
+  h1, h2, h3 { text-wrap: balance; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-ring; }
+  ::selection { background: color-mix(in srgb, var(--primary) 35%, transparent); }
+}
+
+/* Thin scrollbars that match the editor */
+* { scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--muted-foreground) 35%, transparent) transparent; }
+
+.theme-fade, .theme-fade * {
+  transition: background-color .35s ease, color .35s ease, border-color .35s ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

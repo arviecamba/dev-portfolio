@@ -1,0 +1,10 @@
+node_modules
+dist
+.vercel
+.env*
+# Local tool folders and the old one-page draft (it lists a phone number)
+.claude
+.qodo
+.agents
+skills-lock.json
+portfolio.html
