@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+import GitHubActivity from '../components/GitHubActivity.vue'
 import { profile, experience, timeline, projects } from '../data'
 
 // Systems grouped by my role on them, straight from the project list.
@@ -42,6 +43,8 @@ const byRole = order.map(role => ({ role, items: projects.filter(p => p.role.sta
         </div>
       </div>
     </section>
+
+    <GitHubActivity v-reveal />
 
     <section v-reveal class="flex flex-col gap-5">
       <h2 class="font-mono text-sm"><span class="text-syn-keyword">##</span> Systems by role <span class="text-muted-foreground">({{ projects.length }})</span></h2>
