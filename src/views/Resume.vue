@@ -1,8 +1,14 @@
 <script setup>
 import { RouterLink } from 'vue-router'
-import { FileText } from '@lucide/vue'
+import { FileText, Download } from '@lucide/vue'
 import CopyEmail from '../components/CopyEmail.vue'
 import { profile } from '../data'
+
+// Copies of the Downloads originals without the phone number.
+const downloads = [
+  { label: 'Resume', file: 'ArvieJayCamba_Resume_SoftwareDeveloper.pdf' },
+  { label: 'CV', file: 'ArvieJayCamba_CV_SoftwareDeveloper.pdf' },
+]
 
 const parts = [
   { to: '/experience', file: 'experience.md', text: 'Role, milestones and responsibilities' },
@@ -21,15 +27,22 @@ const parts = [
     <section v-reveal class="flex flex-col items-center gap-4 rounded-lg border border-dashed bg-card px-6 py-10 text-center">
       <FileText class="size-10 text-syn-string" aria-hidden="true" />
       <div class="flex flex-col gap-1">
-        <p class="text-lg font-medium">The PDF resume is shared on request.</p>
-        <p class="text-muted-foreground">Email me and I will send the current version.</p>
+        <p class="text-lg font-medium">Download my resume or CV.</p>
+        <p class="text-muted-foreground">The resume is the short version; the CV has every project in detail.</p>
       </div>
+      <div class="flex flex-wrap justify-center gap-2">
+        <a v-for="d in downloads" :key="d.file" :href="`/${d.file}`" download
+           class="inline-flex h-9 items-center gap-2 rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground hover:bg-primary/90">
+          <Download class="size-4" aria-hidden="true" />{{ d.label }} <span class="sr-only">(PDF)</span>
+        </a>
+      </div>
+      <p class="text-sm text-muted-foreground">Questions? Email me.</p>
       <CopyEmail class="justify-center" />
     </section>
 
     <section v-reveal class="flex flex-col gap-3">
       <h2 class="font-mono text-sm"><span class="text-syn-keyword">##</span> The same details on this site</h2>
-      <p class="text-sm text-muted-foreground">{{ profile.title }}, {{ profile.company }}, since {{ profile.since }}.</p>
+      <p class="text-sm text-muted-foreground">{{ profile.title }}</p>
       <ul class="flex flex-col">
         <li v-for="p in parts" :key="p.to">
           <RouterLink :to="p.to" class="flex items-baseline justify-between gap-3 border-b py-3 hover:text-link">

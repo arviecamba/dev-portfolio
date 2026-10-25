@@ -50,16 +50,24 @@ onBeforeUnmount(() => { clearInterval(timer); split?.revert() })
 <template>
   <article class="mx-auto flex max-w-5xl flex-col gap-14 px-5 py-10 sm:px-10 sm:py-14">
     <section ref="hero" class="flex flex-col gap-6">
-      <p data-static class="font-mono text-[13px] text-muted-foreground" aria-label="whoami: Arvie Jay Camba, Software Developer">
+      <div data-static class="flex flex-row-reverse items-center justify-end gap-4">
+      <p class="min-w-0 font-mono text-[13px] text-muted-foreground" aria-label="whoami: Arvie Jay Camba, Software Developer">
         <span aria-hidden="true">
           <span class="text-syn-type">arvie@portfolio</span>:<span class="text-syn-keyword">~</span>$ {{ typed }}<span v-if="!answered" class="ml-px inline-block h-4 w-2 translate-y-0.5 animate-pulse bg-primary"></span>
-          <span :class="['block pt-1 text-foreground/90 transition-opacity duration-300', answered ? 'opacity-100' : 'opacity-0']">{{ profile.fullName }} · {{ profile.title.split(' | ')[0] }} at {{ profile.company }}</span>
+          <span :class="['block pt-1 text-foreground/90 transition-opacity duration-300', answered ? 'opacity-100' : 'opacity-0']">{{ profile.fullName }} · {{ profile.title.split(' | ')[0] }}</span>
         </span>
       </p>
+      <img src="/profile.jpg" alt="Portrait of Arvie Jay Mariano Camba" width="418" height="627"
+           class="size-16 shrink-0 rounded-full border-2 border-primary/60 object-cover object-top sm:size-20" />
+      </div>
       <h1 ref="title" class="max-w-[17ch] text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">Full-stack developer building Laravel and Vue systems.</h1>
       <p class="max-w-[62ch] text-lg leading-relaxed text-muted-foreground">
-        I'm {{ profile.fullName }}. Since {{ profile.since }} I have worked on production systems for government offices, HR and payroll,
-        healthcare, and booking. I design the MySQL schema, build the REST API, and connect the frontend. Promoted to mid-level in 2025.
+        I'm Arvie Jay Mariano Camba, a Software Developer building and maintaining production web applications since March 2023.
+      </p>
+      <p class="max-w-[62ch] text-lg leading-relaxed text-muted-foreground">
+        I work across the stack—from designing MySQL databases and developing RESTful APIs to integrating frontend interfaces
+        and delivering features that support real-world business operations. My experience spans government systems,
+        HR and payroll, healthcare, and booking platforms.
       </p>
       <dl class="grid gap-px overflow-hidden rounded-lg border bg-border sm:grid-cols-3">
         <div v-for="f in focus" :key="f.label" class="flex flex-col gap-1 bg-card px-4 py-3">

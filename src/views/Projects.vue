@@ -13,7 +13,7 @@ const shown = computed(() => active.value === 'All' ? projects : projects.filter
       <p class="font-mono text-[13px] text-muted-foreground"><span class="text-folder">projects/</span> · {{ projects.length }} files</p>
       <h1 class="text-4xl font-semibold tracking-tight sm:text-5xl">Projects</h1>
       <p class="max-w-[62ch] text-lg text-muted-foreground">
-        Systems I built, contributed to, or maintained at Ayahtek Inc. Client code and data are private, so screenshots come from
+        Production systems I built, contributed to, or maintained for government and private clients. Client code and data are private, so screenshots come from
         local test environments with records, names and company marks blurred.
       </p>
     </header>

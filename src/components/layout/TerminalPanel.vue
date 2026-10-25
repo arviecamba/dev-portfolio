@@ -29,7 +29,7 @@ const commands = {
     'resume               open resume.pdf',
     'clear                clear the terminal',
   ].join('\n'),
-  whoami: () => `${profile.fullName}\n${profile.title.split(' | ')[0]} at ${profile.company} since ${profile.since}. Laravel, Vue.js and Nuxt.js.`,
+  whoami: () => `${profile.fullName}\nSoftware Developer building and maintaining production web applications since ${profile.since}.\nFull stack: MySQL databases, RESTful APIs and frontend interfaces for government, HR and payroll, healthcare and booking.`,
   about: () => go('/', 'Opened about.md'),
   projects: () => go('/projects', projects.map(p => `  ${p.slug.padEnd(18)}${p.name}`).join('\n') + '\n\nOpen one with: open <project>'),
   open: arg => {

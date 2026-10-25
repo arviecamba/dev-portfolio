@@ -32,7 +32,7 @@ const shade = ['bg-muted', 'bg-primary/30', 'bg-primary/55', 'bg-primary/80', 'b
     </div>
     <p class="max-w-[65ch] text-muted-foreground">
       <span class="font-semibold text-foreground">{{ fmt(data.total) }}</span> contributions in the last year.
-      {{ fmt(data.private) }} of them are in private company repositories, so GitHub shows the counts but not the code.
+      {{ fmt(data.private) }} of them are in private repositories, so GitHub shows the counts but not the code.
     </p>
 
     <div ref="box" class="overflow-x-auto rounded-lg border bg-card p-4">
@@ -63,8 +63,7 @@ const shade = ['bg-muted', 'bg-primary/30', 'bg-primary/55', 'bg-primary/80', 'b
       </div>
     </dl>
     <p class="text-xs text-muted-foreground">
-      Contributions per calendar year. {{ data.years[0].year }} starts in March, when I joined Ayahtek;
-      {{ data.years.at(-1).year }} runs to {{ data.fetchedAt }}.
+      Contributions per calendar year, from March {{ data.years[0].year }} to {{ data.fetchedAt }}.
     </p>
   </section>
 </template>
