@@ -5,11 +5,8 @@ import { ArrowRight, FileText, Mail } from '@lucide/vue'
 import { Button } from '@/components/ui/button'
 import ProjectCarousel from '../components/ProjectCarousel.vue'
 import { gsap, SplitText, reduced } from '../motion'
-import { profile, projects, intro } from '../data'
+import { profile, projects, intro, orderedProjects } from '../data'
 
-// Featured work leads the carousel; the rest follow in data order.
-const featured = ['online-clearance', 'pet-booking', 'talk-encourage', 'lgu360']
-const ordered = [...projects].sort((a, b) => (featured.indexOf(a.slug) + 1 || 99) - (featured.indexOf(b.slug) + 1 || 99))
 const mainDev = projects.filter(p => p.role.startsWith('Main developer')).length
 
 const focus = [
@@ -80,7 +77,7 @@ onBeforeUnmount(() => { clearInterval(timer); split?.revert() })
         <h2 class="font-mono text-sm"><span class="text-syn-keyword">##</span> Featured work</h2>
         <RouterLink to="/projects" class="text-sm text-link hover:underline">All {{ projects.length }} projects →</RouterLink>
       </div>
-      <ProjectCarousel :projects="ordered" />
+      <ProjectCarousel :projects="orderedProjects" />
     </section>
   </article>
 </template>

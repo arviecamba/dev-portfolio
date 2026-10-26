@@ -10,7 +10,7 @@ import Shot from '../Shot.vue'
 import CopyEmail from '../CopyEmail.vue'
 import BrandIcon from '../BrandIcon.vue'
 import { gsap, ScrollTrigger, reduced } from '../../motion'
-import { profile, intro, experience, timeline, skills, projects, images, downloads } from '../../data'
+import { profile, intro, experience, timeline, skills, projects, images, downloads, orderedProjects, featuredOrder } from '../../data'
 
 // What each part of my work does, in plain words.
 const work = [
@@ -22,8 +22,8 @@ const work = [
 
 const domains = [...new Set(projects.map(p => p.category))]
 
-const featured = projects.filter(p => p.featured)
-const others = projects.filter(p => !p.featured)
+const featured = orderedProjects.filter(p => p.featured || featuredOrder.includes(p.slug))
+const others = orderedProjects.filter(p => !featured.includes(p))
 const showAll = ref(false)
 const cover = p => images(p)[0]
 
