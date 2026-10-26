@@ -3,13 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Arvie Jay Camba, Software Developer. Laravel, Vue.js, Nuxt.js." />
+    <meta name="description" content="Arvie Jay Mariano Camba, Software Developer building production web applications for government, HR and payroll, healthcare and booking. Laravel, Vue.js, Nuxt.js, MySQL." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Arvie Jay Camba · Software Developer" />
+    <meta property="og:description" content="Full-stack web developer building production systems with Laravel, Vue.js, Nuxt.js and MySQL since March 2023." />
+    <meta name="twitter:card" content="summary" />
     <title>Arvie Jay Camba · Software Developer</title>
     <script>
-      // Dark+ unless the visitor picked Light+ before. Runs before first paint.
-      var saved = null
-      try { saved = localStorage.getItem('theme') } catch (e) {}
-      if (saved !== 'light') document.documentElement.classList.add('dark')
+      // Theme before first paint: the visitor's own pick, else Dark+ for the developer view
+      // and light for the professional view.
+      var saved = null, view = null
+      try { saved = localStorage.getItem('theme'); view = localStorage.getItem('view') } catch (e) {}
+      if (saved ? saved === 'dark' : view !== 'professional') document.documentElement.classList.add('dark')
     </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />

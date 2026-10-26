@@ -20,7 +20,7 @@ function toggle() {
 </script>
 
 <template>
-  <button type="button" @click="toggle" aria-label="Dark theme" :aria-pressed="dark" :title="dark ? 'Switch to Light+' : 'Switch to Dark+'"
+  <button type="button" @click="toggle" aria-label="Dark theme" :aria-pressed="dark" :title="dark ? 'Switch to light theme' : 'Switch to dark theme'"
           class="grid size-8 shrink-0 place-items-center rounded-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">
     <span ref="icon" class="grid">
       <Sun v-if="dark" class="size-4" aria-hidden="true" />

@@ -2,13 +2,7 @@
 import { RouterLink } from 'vue-router'
 import { FileText, Download } from '@lucide/vue'
 import CopyEmail from '../components/CopyEmail.vue'
-import { profile } from '../data'
-
-// Copies of the Downloads originals without the phone number.
-const downloads = [
-  { label: 'Resume', file: 'ArvieJayCamba_Resume_SoftwareDeveloper.pdf' },
-  { label: 'CV', file: 'ArvieJayCamba_CV_SoftwareDeveloper.pdf' },
-]
+import { profile, downloads } from '../data'
 
 const parts = [
   { to: '/experience', file: 'experience.md', text: 'Role, milestones and responsibilities' },
