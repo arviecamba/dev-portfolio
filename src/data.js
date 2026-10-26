@@ -57,7 +57,7 @@ export const projects = [
   {
     slug: 'online-clearance', name: 'Online Clearance Application System (OPCAS)', category: 'Government',
     domain: 'Department of Justice, Quezon City', role: 'Main developer', featured: true,
-    stack: ['Laravel', 'Alpine.js', 'MySQL'],
+    stack: ['Laravel', 'jQuery', 'MySQL'],
     summary: 'Prosecutor clearance applications filed online, from case record checking to certificate issuance. It began as my BSIT thesis and is now in government use.',
     built: ['Designed the full database and built the backend.', 'Online registration, clearance applications, case record checking, certificate issuance, and application tracking.', 'Integrated the system with the Quezon City E-Services website.'],
     need: 'Applicants had to apply for a prosecutor clearance in person, with long lines while staff checked case records by hand.',
@@ -72,7 +72,7 @@ export const projects = [
   {
     slug: 'case-monitoring', name: 'Case Monitoring System', category: 'Government',
     domain: 'Office of the City Prosecutor', role: 'Main developer', featured: true,
-    stack: ['Laravel', 'jQuery', 'MySQL'],
+    stack: ['Laravel', 'Alpine.js', 'MySQL'],
     summary: 'Case records, reports, case aging tracking, and motion for reconsideration workflows for prosecutors, division chiefs, and secretaries.',
     built: ['Designed the full database and built the backend and UI.', 'Integrated the system with the Quezon City E-Services website.'],
     need: '', implementation: 'A Laravel backend with JWT authentication. Case aging is computed automatically from the date a case is filed to the date it is resolved.', challenges: [], outcome: '',
@@ -208,5 +208,10 @@ export function images(p) {
     mobile: /-mobile\.(png|jpg)$/.test(f),
   })))
 }
+
+// Order for featured work in both views: government systems first, then the other main projects.
+export const featuredOrder = ['online-clearance', 'case-monitoring', 'police-pension', 'edppas', 'pet-booking', 'talk-encourage', 'lgu360']
+const rank = p => featuredOrder.indexOf(p.slug) + 1 || 99
+export const orderedProjects = [...projects].sort((a, b) => rank(a) - rank(b))
 
 export const categories = ['All', ...new Set(projects.map(p => p.category))]
