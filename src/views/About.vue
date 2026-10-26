@@ -5,7 +5,7 @@ import { ArrowRight, FileText, Mail } from '@lucide/vue'
 import { Button } from '@/components/ui/button'
 import ProjectCarousel from '../components/ProjectCarousel.vue'
 import { gsap, SplitText, reduced } from '../motion'
-import { profile, projects } from '../data'
+import { profile, projects, intro } from '../data'
 
 // Featured work leads the carousel; the rest follow in data order.
 const featured = ['online-clearance', 'pet-booking', 'talk-encourage', 'lgu360']
@@ -61,14 +61,7 @@ onBeforeUnmount(() => { clearInterval(timer); split?.revert() })
            class="size-16 shrink-0 rounded-full border-2 border-primary/60 object-cover object-top sm:size-20" />
       </div>
       <h1 ref="title" class="max-w-[17ch] text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">Full-stack developer building Laravel and Vue systems.</h1>
-      <p class="max-w-[62ch] text-lg leading-relaxed text-muted-foreground">
-        I'm Arvie Jay Mariano Camba, a Software Developer building and maintaining production web applications since March 2023.
-      </p>
-      <p class="max-w-[62ch] text-lg leading-relaxed text-muted-foreground">
-        I work across the stack—from designing MySQL databases and developing RESTful APIs to integrating frontend interfaces
-        and delivering features that support real-world business operations. My experience spans government systems,
-        HR and payroll, healthcare, and booking platforms.
-      </p>
+      <p v-for="(line, i) in intro" :key="i" class="max-w-[62ch] text-lg leading-relaxed text-muted-foreground">{{ line }}</p>
       <dl class="grid gap-px overflow-hidden rounded-lg border bg-border sm:grid-cols-3">
         <div v-for="f in focus" :key="f.label" class="flex flex-col gap-1 bg-card px-4 py-3">
           <dt class="font-mono text-[11px] tracking-widest text-brand uppercase">{{ f.label }}</dt>

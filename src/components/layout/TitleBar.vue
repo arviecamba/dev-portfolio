@@ -2,6 +2,7 @@
 import { RouterLink } from 'vue-router'
 import { Menu, Search, PanelLeft, PanelBottom } from '@lucide/vue'
 import ThemeToggle from '../ThemeToggle.vue'
+import ViewSwitch from '../ViewSwitch.vue'
 import { ui, openSearch } from '../../workspace'
 
 defineProps({ desktop: Boolean })
@@ -15,7 +16,7 @@ const iconBtn = 'grid size-8 place-items-center rounded-sm text-muted-foreground
     </button>
     <RouterLink to="/" class="flex shrink-0 items-center gap-2 rounded-sm px-1 text-[13px] font-medium">
       <img src="/favicon.svg" alt="" class="size-5" width="20" height="20" />
-      <span>Arvie Jay Camba</span>
+      <span class="max-sm:sr-only">Arvie Jay Camba</span>
     </RouterLink>
 
     <button type="button" @click="openSearch(desktop)"
@@ -26,6 +27,7 @@ const iconBtn = 'grid size-8 place-items-center rounded-sm text-muted-foreground
     </button>
 
     <div class="ml-auto flex items-center gap-0.5 sm:ml-0">
+      <ViewSwitch compact class="mr-1" />
       <button type="button" :class="[iconBtn, 'sm:hidden']" aria-label="Search" @click="openSearch(desktop)">
         <Search class="size-4" aria-hidden="true" />
       </button>
