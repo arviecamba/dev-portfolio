@@ -16,7 +16,7 @@ export const intro = [
   'I work across the stack—from designing MySQL databases and developing RESTful APIs to integrating frontend interfaces and delivering features that support real-world business operations. My experience spans government systems, HR and payroll, healthcare, and booking platforms.',
 ]
 
-// Resume and CV PDFs in public/: copies of the originals without the phone number.
+// Resume and CV PDFs in public/.
 export const downloads = [
   { label: 'Resume', file: 'ArvieJayCamba_Resume_SoftwareDeveloper.pdf' },
   { label: 'CV', file: 'ArvieJayCamba_CV_SoftwareDeveloper.pdf' },
